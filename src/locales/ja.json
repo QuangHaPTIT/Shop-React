@@ -1,6 +1,29 @@
 {
     "system" : "LMS",
     "labels": {
-        
+        "confirm": {
+            "title": "確認",
+            "message": "この操作を実行してもよろしいですか？",
+            "confirmText": "確認",
+            "cancelText": "キャンセル"
+        },
+        "warning": {
+            "title": "警告",
+            "message": "この操作を実行してもよろしいですか？",
+            "confirmText": "確認",
+            "cancelText": "キャンセル"
+        },
+        "info": {
+            "title": "情報",
+            "message": "この操作を実行してもよろしいですか？",
+            "confirmText": "確認",
+            "cancelText": "キャンセル"
+        },
+        "auth": {
+            "login": {
+                "title": "ログイン",
+                "description": "ログインして続けてください"
+            }
+        }
     }
 }

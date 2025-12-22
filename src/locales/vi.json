@@ -1,6 +1,31 @@
 {
   "system": "LMS",
-  "labels": {},
+  "labels": {
+    "confirm": {
+      "title": "Xác nhận",
+      "message": "Bạn có chắc chắn muốn thực hiện hành động này không?",
+      "confirmText": "Xác nhận",
+      "cancelText": "Hủy"
+    },
+    "warning": {
+      "title": "Cảnh báo",
+      "message": "Bạn có chắc chắn muốn thực hiện hành động này không?",
+      "confirmText": "Xác nhận",
+      "cancelText": "Hủy"
+    },
+    "info": {
+      "title": "Thông báo",
+      "message": "Bạn có chắc chắn muốn thực hiện hành động này không?",
+      "confirmText": "Xác nhận",
+      "cancelText": "Hủy"
+    },
+    "auth": {
+      "login": {
+        "title": "Đăng nhập",
+        "description": "Vui lòng đăng nhập để tiếp tục"
+      }
+    }
+  },
   "errors": {
     "network_error": "Lỗi kết nối mạng. Vui lòng kiểm tra kết nối của bạn.",
     "unauthorized": "Phiên đăng nhập đã hết hạn. Vui lòng đăng nhập lại."

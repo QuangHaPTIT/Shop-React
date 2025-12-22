@@ -1,6 +1,29 @@
 {
     "system" : "LMS",
     "labels": {
-        
+        "confirm": {
+            "title": "Confirm",
+            "message": "Are you sure you want to perform this action?",
+            "confirmText": "Confirm",
+            "cancelText": "Cancel"
+        },
+        "warning": {
+            "title": "Warning",
+            "message": "Are you sure you want to perform this action?",
+            "confirmText": "Confirm",
+            "cancelText": "Cancel"
+        },
+        "info": {
+            "title": "Info",
+            "message": "Are you sure you want to perform this action?",
+            "confirmText": "Confirm",
+            "cancelText": "Cancel"
+        },
+        "auth": {
+            "login": {
+                "title": "Login",
+                "description": "Please login to continue"
+            }
+        }
     }
 }

@@ -4,6 +4,8 @@ import type {
   LoginRequest,
   RefreshTokenResponse,
   LoginResponse,
+  ChangePasswordRequest,
+  ChangePasswordResponse,
 } from '../../types/auth';
 import type { User } from '../../types/user';
 import axiosInstance from './axios';
@@ -30,4 +32,8 @@ export const authApis = {
     const response = await axiosInstance.post<void>(API_URL.LOGOUT);
     return response;
   },
+  changePassword: async (data: ChangePasswordRequest): Promise<AxiosResponse<ChangePasswordResponse>> => {
+    const response = await axiosInstance.post<ChangePasswordResponse>(API_URL.CHANGE_PASSWORD, data);
+    return response;
+  }
 };
