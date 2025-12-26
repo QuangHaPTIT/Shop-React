@@ -92,6 +92,7 @@ const CourseTable: React.FC<CourseTableProps> = ({
 
         <Table
           columns={columns}
+          data={data}
           loading={loading}
           outlined
           hoverable
