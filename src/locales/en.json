@@ -24,6 +24,38 @@
                 "title": "Login",
                 "description": "Please login to continue"
             }
+        },
+        "course": {
+            "fields": {
+                "name": "Course Name",
+                "instructor": "Instructor",
+                "description": "Description",
+                "students": "Students",
+                "status": "Status",
+                "price": "Price",
+                "createdAt": "Created At",
+                "updatedAt": "Updated At",
+                "add": "Add Course",
+                "edit": "Edit Course",
+                "delete": "Delete Course",
+                "view": "View Course",
+                "view_detail": "View Course Detail"
+            },
+            "status": {
+                "active": "Active",
+                "inactive": "Inactive",
+                "pedding": "Pedding"
+            }
         }
+    },
+    "errors": {
+        "network_error": "Network error. Please check your connection.",
+        "unauthorized": "Session timed out. Please login again.",
+        "login_failed": "Login failed. Please check your username and password."
+    },
+    "validations": {
+        "required": "This field is required.",
+        "email": "Please enter a valid email address.",
+        "password": "Please enter a password."
     }
 }

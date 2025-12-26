@@ -1,11 +1,12 @@
-import React, { type ReactNode } from 'react';
-import Header from './Header/Header';
-import Footer from './Footer/Footer';
-import Sidebar from './Sidebar/Sidebar';
-import { layoutConfig } from './layout';
+// src/components/layout/MainLayout.tsx
+import React from "react";
+import { Outlet } from "react-router-dom";
+import Header from "./Header/Header";
+import Footer from "./Footer/Footer";
+import Sidebar from "./Sidebar/Sidebar";
+import { layoutConfig } from "./layout";
 
 interface MainLayoutProps {
-  children: ReactNode;
   showHeader?: boolean;
   showFooter?: boolean;
   showSidebar?: boolean;
@@ -14,15 +15,14 @@ interface MainLayoutProps {
 }
 
 const MainLayout: React.FC<MainLayoutProps> = ({
-  children,
   showHeader = true,
   showFooter = true,
   showSidebar = true,
   sidebarCollapsed = false,
   onSidebarToggle,
 }) => {
-  const sidebarWidth = sidebarCollapsed 
-    ? layoutConfig.sidebar.collapsedWidth 
+  const sidebarWidth = sidebarCollapsed
+    ? layoutConfig.sidebar.collapsedWidth
     : layoutConfig.sidebar.width;
 
   const contentPaddingTop = showHeader
@@ -32,35 +32,26 @@ const MainLayout: React.FC<MainLayoutProps> = ({
   return (
     <div className="flex min-h-screen bg-gray-50">
       {showSidebar && (
-        <Sidebar 
-          collapsed={sidebarCollapsed}
-          onToggle={onSidebarToggle}
-        />
+        <Sidebar collapsed={sidebarCollapsed} onToggle={onSidebarToggle} />
       )}
 
-      {/* Main Content Area */}
-      <div 
+      <div
         className="flex flex-col flex-1"
         style={{
-          marginLeft: showSidebar ? `${sidebarWidth}px` : '0',
+          marginLeft: showSidebar ? `${sidebarWidth}px` : "0",
           transition: `margin-left ${layoutConfig.transition.duration}ms ${layoutConfig.transition.easing}`,
         }}
       >
-        {showHeader && (
-          <Header 
-            sidebarWidth={showSidebar ? sidebarWidth : 0}
-          />
-        )}
+        {showHeader && <Header sidebarWidth={showSidebar ? sidebarWidth : 0} />}
 
-        {/* Page Content */}
-        <main 
+        <main
           className="flex-1"
           style={{
             padding: `${layoutConfig.content.padding}px`,
             paddingTop: `${contentPaddingTop}px`,
           }}
         >
-          {children}
+          <Outlet />
         </main>
 
         {showFooter && <Footer />}

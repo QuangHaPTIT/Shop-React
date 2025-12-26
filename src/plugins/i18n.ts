@@ -21,7 +21,7 @@ i18n
     lng: localStorage.getItem('language') || 'vi',
     fallbackLng: 'vi',
     debug: false,
-    keySeparator: false,
+    keySeparator: '.',
     react: {
       useSuspense: false,
     },

@@ -1,3 +1,9 @@
+export interface LoginFormData {
+  username: string;
+  password: string;
+  rememberMe: boolean;
+}
+
 export interface LoginRequest {
   username: string;
   password: string;
@@ -25,4 +31,12 @@ export interface ChangePasswordRequest {
 export interface ChangePasswordResponse {
   message: string;
   success: boolean;
+}
+
+export interface RegisterFormData {
+  username: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+  agreeTerms: boolean
 }

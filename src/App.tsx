@@ -1,12 +1,11 @@
-import React from 'react'
+import { BrowserRouter } from "react-router-dom"
+import { AppRoutes } from "./router"
 
 const App = () => {
   return (
-    <div>
-      <div className='container bg-red-500 mx-auto'>
-        <h1>Hello taiwind</h1>
-      </div>
-    </div>
+  <BrowserRouter>
+    <AppRoutes/>
+  </BrowserRouter>
   )
 }
 

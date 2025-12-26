@@ -22,12 +22,70 @@
     "auth": {
       "login": {
         "title": "Đăng nhập",
-        "description": "Vui lòng đăng nhập để tiếp tục"
+        "description": "Vui lòng đăng nhập để tiếp tục",
+        "username": "Tên đăng nhập",
+        "usernamePlaceholder": "Nhập tên đăng nhập",
+        "password": "Mật khẩu",
+        "passwordPlaceholder": "Nhập mật khẩu",
+        "rememberMe": "Ghi nhớ đăng nhập",
+        "forgotPassword": "Quên mật khẩu?",
+        "submit": "Đăng nhập",
+        "or": "Hoặc",
+        "noAccount": "Chưa có tài khoản?",
+        "signUp": "Đăng ký ngay"
+      },
+      "register": {
+        "title": "Đăng ký",
+        "description": "Tạo tài khoản mới để bắt đầu",
+        "username": "Tên đăng nhập",
+        "usernamePlaceholder": "Nhập tên đăng nhập",
+        "email": "Email",
+        "emailPlaceholder": "Nhập địa chỉ email",
+        "password": "Mật khẩu",
+        "passwordPlaceholder": "Nhập mật khẩu",
+        "confirmPassword": "Xác nhận mật khẩu",
+        "confirmPasswordPlaceholder": "Nhập lại mật khẩu",
+        "agreeTerms": "Tôi đồng ý với",
+        "termsAndConditions": "Điều khoản và Điều kiện",
+        "submit": "Đăng ký",
+        "or": "Hoặc",
+        "hasAccount": "Đã có tài khoản?",
+        "login": "Đăng nhập ngay"
+      }
+    },
+    "course": {
+      "fields": {
+        "name": "Tên khóa học",
+        "instructor": "Giảng viên",
+        "description": "Mô tả",
+        "students": "Số học viên",
+        "status": "Trạng thái",
+        "price": "Giá",
+        "createdAt": "Ngày tạo",
+        "updatedAt": "Ngày cập nhật",
+        "add": "Thêm khóa học",
+        "edit": "Sửa khóa học",
+        "delete": "Xóa khóa học",
+        "view": "Xem khóa học",
+        "view_detail": "Xem chi tiết khóa học"
+      },
+      "status": {
+        "active": "Hoạt động",
+        "inactive": "Không hoạt động",
+        "pedding": "Chờ xác nhận"
       }
     }
   },
   "errors": {
     "network_error": "Lỗi kết nối mạng. Vui lòng kiểm tra kết nối của bạn.",
-    "unauthorized": "Phiên đăng nhập đã hết hạn. Vui lòng đăng nhập lại."
+    "unauthorized": "Phiên đăng nhập đã hết hạn. Vui lòng đăng nhập lại.",
+    "login_failed": "Đăng nhập thất bại. Vui lòng kiểm tra lại tên đăng nhập và mật khẩu."
+  },
+  "validations": {
+    "required": "Trường {{field}} là bắt buộc.", 
+    "email": "Vui lòng nhập địa chỉ email hợp lệ.",
+    "password": "Vui lòng nhập mật khẩu.",
+    "must_accept_terms": "Bạn phải đồng ý với điều khoản và điều kiện để đăng ký.",
+    "password_not_match": "Mật khẩu không khớp."
   }
 }

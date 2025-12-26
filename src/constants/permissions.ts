@@ -6,6 +6,7 @@ export const permissions = {
   ORDERS: 'ORDERS',
   USERS: 'USERS',
   PAYMENTS: 'PAYMENTS',
+  REPORTS: 'REPORTS',
 } as const;
 
 export type Permission = (typeof permissions)[keyof typeof permissions];
@@ -24,6 +25,7 @@ export const rolePermissions: Record<Role, Permission[]> = {
     permissions.PAYMENTS,
     permissions.USERS,
     permissions.ORDERS,
+    permissions.REPORTS
   ],
   [RoleValues.ADMINISTRATOR]: [
     permissions.DASHBOARD,
@@ -31,6 +33,7 @@ export const rolePermissions: Record<Role, Permission[]> = {
     permissions.PAYMENTS,
     permissions.USERS,
     permissions.ORDERS,
+    permissions.REPORTS
   ],
 };
 

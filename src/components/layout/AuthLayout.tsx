@@ -1,13 +1,12 @@
-import React, { type ReactNode } from "react";
+import React from "react";
+import { Outlet } from "react-router-dom";
 
-interface AuthLayoutProps {
-  children: React.ReactNode;
-}
-
-const AuthLayout: React.FC<AuthLayoutProps> = ({ children }) => {
+const AuthLayout: React.FC = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100">
-      <div className="w-full max-w-md px-4">{children}</div>
+      <div className="w-full max-w-md px-4">
+        <Outlet />
+      </div>
     </div>
   );
 };

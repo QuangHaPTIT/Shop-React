@@ -23,7 +23,42 @@
             "login": {
                 "title": "ログイン",
                 "description": "ログインして続けてください"
+            },
+            "register": {
+
+            }
+        },
+        "course": {
+            "fields": {
+                "name": "コース名",
+                "instructor": "講師",
+                "description": "説明",
+                "students": "学生数",
+                "status": "ステータス",
+                "price": "価格",
+                "createdAt": "作成日",
+                "updatedAt": "更新日",
+                "add": "コース追加",
+                "edit": "コース編集",
+                "delete": "コース削除",
+                "view": "コース詳細",
+                "view_detail": "コース詳細"
+            },
+            "status": {
+                "active": "アクティブ",
+                "inactive": "非アクティブ",
+                "pedding": "保留中"
             }
         }
+    },
+    "errors": {
+        "network_error": "ネットワークエラーが発生しました。接続を確認してください。",
+        "unauthorized": "セッションがタイムアウトしました。再度ログインしてください。",
+        "login_failed": "ログインに失敗しました。ユーザー名とパスワードを確認してください。"
+    },
+    "validations": {
+        "required": "必須項目です。",
+        "email": "有効なメールアドレスを入力してください。",
+        "password": "パスワードを入力してください。"
     }
 }
