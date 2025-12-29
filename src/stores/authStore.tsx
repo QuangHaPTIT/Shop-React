@@ -42,8 +42,8 @@ export const useAuthStore = create<AuthState>((set, get) => ({
 
   rememberMe: (loginRequest: LoginRequest, shouldRemember: boolean) => {
     try {
-      if (shouldRemember && loginRequest?.username) {
-        localStorage.setItem(STORAGE_KEYS.SAVED_USERNAME, loginRequest.username.trim());
+      if (shouldRemember && loginRequest?.email) {
+        localStorage.setItem(STORAGE_KEYS.SAVED_USERNAME, loginRequest.email.trim());
       } else {
         localStorage.removeItem(STORAGE_KEYS.SAVED_USERNAME);
       }
@@ -140,7 +140,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       return loginPromise;
     }
 
-    if (!loginRequest?.username?.trim() || !loginRequest?.password) {
+    if (!loginRequest?.email?.trim() || !loginRequest?.password) {
       throw new Error('Username and password are required');
     }
 
@@ -149,14 +149,23 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     loginPromise = (async () => {
       try {
         const response = await authApis.login({
-          username: loginRequest.username.trim(),
+          email: loginRequest.email.trim(),
           password: loginRequest.password,
         });
 
         const loginData = response.data;
+
+        const accessToken = loginData.data?.access_token;
+        const refreshToken = loginData.data?.refresh_token;
+
+        if (!accessToken || !refreshToken) {
+          console.error('Login response:', loginData);
+          throw new Error('Login failed: No tokens received from server');
+        }
         
-        localStorage.setItem(STORAGE_KEYS.ACCESS_TOKEN, loginData.accessToken);
-        localStorage.setItem(STORAGE_KEYS.REFRESH_TOKEN, loginData.refreshToken);
+
+        localStorage.setItem(STORAGE_KEYS.ACCESS_TOKEN, accessToken);
+        localStorage.setItem(STORAGE_KEYS.REFRESH_TOKEN, refreshToken);
 
         try {
           localStorage.setItem(STORAGE_KEYS.LOGIN_BROADCAST, String(Date.now()));
@@ -170,18 +179,13 @@ export const useAuthStore = create<AuthState>((set, get) => ({
           console.warn('Failed to broadcast login event:', error);
         }
 
-        get().saveTokenId(loginData.accessToken);
+        get().saveTokenId(accessToken);
         get().rememberMe(loginRequest, shouldRemember);
-        await get().getMe();
-
-      } catch (error: any) {
-        const _error = error as { status?: number; response?: { data?: ErrorResponse } };
-        
-        if (_error.status === 401 || _error.status === 400) {
-          const errorCode = _error.response?.data?.errorCode;
-          throw errorCode || 'AUTHENTICATION_FAILED';
-        }
-        
+        await get().getMe();        
+        set({ isLoggingIn: false });
+        loginPromise = null;
+      } catch (error) {
+        console.error('Login failed:', error);
         throw error;
       } finally {
         set({ isLoggingIn: false });

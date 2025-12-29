@@ -29,14 +29,7 @@ const Header: React.FC<HeaderProps> = ({ sidebarWidth = 0 }) => {
     >
       <div className="flex items-center justify-between h-16 px-6">
         <div className="flex items-center flex-1 gap-6">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">S</span>
-            </div>
-            <h1 className="text-xl font-bold text-gray-900 hidden md:block">
-              Shop React
-            </h1>
-          </div>
+          
 
           <form onSubmit={handleSearch} className="flex-1 max-w-md">
             <Input

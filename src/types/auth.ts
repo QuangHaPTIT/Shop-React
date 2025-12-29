@@ -1,18 +1,27 @@
+import type { User } from "./user";
+
 export interface LoginFormData {
-  username: string;
+  email: string;
   password: string;
   rememberMe: boolean;
 }
 
 export interface LoginRequest {
-  username: string;
+  email: string;
   password: string;
 }
 
 export interface LoginResponse {
-  accessToken: string;
-  refreshToken: string;
+  typeError?: string;
+  data: {
+    user: User;
+    access_token: string;    
+    refresh_token: string;    
+  };
+  message?: string;
+  status?: string;
 }
+
 
 export interface AuthResponse {
   data: LoginResponse;

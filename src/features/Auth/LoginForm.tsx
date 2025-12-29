@@ -14,6 +14,7 @@ import { ROUTES } from "../../constants/route";
 import Input from "../../components/elements/Input";
 import Checkbox from "../../components/elements/Checkbox";
 
+
 export const LoginForm: React.FC = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
@@ -22,7 +23,7 @@ export const LoginForm: React.FC = () => {
   const savedUsername = localStorage.getItem(STORAGE_KEYS.SAVED_USERNAME) || "";
 
   const schema = yup.object({
-    username: yup
+    email: yup
       .string()
       .trim()
       .required(
@@ -47,7 +48,7 @@ export const LoginForm: React.FC = () => {
   } = useForm<LoginFormData>({
     resolver: yupResolver(schema),
     defaultValues: {
-      username: savedUsername,
+      email: savedUsername,
       password: "",
       rememberMe: !!savedUsername,
     },
@@ -55,7 +56,7 @@ export const LoginForm: React.FC = () => {
 
   useEffect(() => {
     if (savedUsername) {
-      setValue("username", savedUsername);
+      setValue("email", savedUsername);
       setValue("rememberMe", true);
     }
   }, [savedUsername, setValue]);
@@ -65,7 +66,7 @@ export const LoginForm: React.FC = () => {
     try {
       await login(
         {
-          username: data.username,
+          email: data.email,
           password: data.password,
         },
         data.rememberMe
@@ -99,7 +100,7 @@ export const LoginForm: React.FC = () => {
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
         <Controller
-          name="username"
+          name="email"
           control={control}
           render={({ field }) => (
             <div>
@@ -109,16 +110,16 @@ export const LoginForm: React.FC = () => {
                 value={field.value}
                 onChange={field.onChange}
                 inputProps={{
-                  name: "username",
+                  name: "email",
                   type: "text",
                   placeholder: t("labels.auth.login.usernamePlaceholder"),
-                  autocomplete: "username",
+                  autocomplete: "email",
                   onBlur: field.onBlur,
                 }}
               />
-              {errors.username && (
+              {errors.email && (
                 <p className="text-sm text-red-600 mt-1">
-                  {errors.username.message}
+                  {errors.email.message}
                 </p>
               )}
             </div>
