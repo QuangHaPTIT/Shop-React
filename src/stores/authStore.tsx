@@ -182,8 +182,6 @@ export const useAuthStore = create<AuthState>((set, get) => ({
         get().saveTokenId(accessToken);
         get().rememberMe(loginRequest, shouldRemember);
         await get().getMe();        
-        set({ isLoggingIn: false });
-        loginPromise = null;
       } catch (error) {
         console.error('Login failed:', error);
         throw error;

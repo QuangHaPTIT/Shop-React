@@ -28,11 +28,11 @@ const UserMenu: React.FC = () => {
 
   const handleLogout = async () => {
     confirmDialog({
-      title: i18n.t('labels.confirm.info.title') || 'Xác nhận',
+      title: i18n.t('labels.confirm.title') || 'Xác nhận',
       message: 'Bạn có chắc chắn muốn đăng xuất không?',
       confirmText: 'Đăng xuất',
       cancelText: 'Hủy',
-      type: 'warning',
+      type: 'info',
       onConfirm: async () => {
         await logout();
         window.location.href = '/login';
@@ -62,7 +62,10 @@ const UserMenu: React.FC = () => {
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-100 transition-colors"
       >
-        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-semibold text-sm">
+        <div 
+          className="w-8 h-8 rounded-full flex items-center justify-center text-white font-semibold text-sm"
+          style={{ backgroundColor: 'var(--color-success-400)' }}
+        >
           {user.name?.charAt(0).toUpperCase() || user.email?.charAt(0).toUpperCase() || 'U'}
         </div>
         <div className="hidden md:flex flex-col items-start">

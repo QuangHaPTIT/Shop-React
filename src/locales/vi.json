@@ -32,7 +32,9 @@
         "submit": "Đăng nhập",
         "or": "Hoặc",
         "noAccount": "Chưa có tài khoản?",
-        "signUp": "Đăng ký ngay"
+        "signUp": "Đăng ký ngay",
+        "success": "Đăng nhập thành công",
+        "failed": "Đăng nhập thất bại"
       },
       "register": {
         "title": "Đăng ký",

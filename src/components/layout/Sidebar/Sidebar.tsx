@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { layoutConfig } from '../layout';
 import ChevronLeftIcon from '../../icons/ChevronLeftIcon';
 import ChevronRightIcon from '../../icons/ChevronRightIcon';
@@ -7,6 +8,7 @@ import ProductsIcon from '../../icons/ProductsIcon';
 import OrdersIcon from '../../icons/OrdersIcon';
 import UsersIcon from '../../icons/UsersIcon';
 import ReportsIcon from '../../icons/ReportsIcon';
+import ShopIcon from '../../icons/ShopIcon';
 
 interface NavItem {
   path: string;
@@ -48,6 +50,7 @@ const navItems: NavItem[] = [
 ];
 
 const Sidebar: React.FC<SidebarProps> = ({ collapsed = false, onToggle }) => {
+  const { t } = useTranslation();
   const [activePath, setActivePath] = useState(
     typeof window !== 'undefined' ? window.location.pathname : '/'
   );
@@ -76,15 +79,21 @@ const Sidebar: React.FC<SidebarProps> = ({ collapsed = false, onToggle }) => {
     >
       <div className="h-16 flex items-center justify-between px-4 border-b border-gray-200">
         {!collapsed ? (
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">S</span>
+          <div className="flex items-center gap-3">
+            <div 
+              className="w-10 h-10 rounded-lg flex items-center justify-center"
+              style={{ backgroundColor: 'var(--color-lime-500)' }}
+            >
+              <ShopIcon className="w-6 h-6 text-white" />
             </div>
-            <h1 className="text-lg font-bold text-gray-900">Shop React</h1>
+            <h1 className="text-lg font-bold text-gray-900"> {t('system')}</h1>
           </div>
         ) : (
-          <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center mx-auto">
-            <span className="text-white font-bold text-sm">S</span>
+          <div 
+            className="w-10 h-10 rounded-lg flex items-center justify-center mx-auto"
+            style={{ backgroundColor: 'var(--color-lime-500)' }}
+          >
+            <ShopIcon className="w-6 h-6 text-white" />
           </div>
         )}
       </div>
@@ -99,12 +108,13 @@ const Sidebar: React.FC<SidebarProps> = ({ collapsed = false, onToggle }) => {
                   onClick={() => handleNavigation(item.path)}
                   className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg transition-colors ${
                     isActive
-                      ? 'bg-blue-50 text-blue-600'
+                      ? 'text-white'
                       : 'text-gray-700 hover:bg-gray-100'
                   }`}
+                  style={isActive ? { backgroundColor: 'var(--color-lime-500)' } : {}}
                   title={collapsed ? item.label : ''}
                 >
-                  <span className={`flex-shrink-0 ${isActive ? 'text-blue-600' : 'text-gray-500'}`}>
+                  <span className={`shrink-0 ${isActive ? 'text-white' : 'text-gray-500'}`}>
                     {item.icon}
                   </span>
                   {!collapsed && (
