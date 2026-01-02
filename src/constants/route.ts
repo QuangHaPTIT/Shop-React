@@ -10,6 +10,9 @@ export const ROUTES = {
   ORDERS: '/orders',
   USERS: '/users',
   REPORTS: '/reports',
+  
+  // Error
+  NOT_FOUND: '/404',
 } as const;
 
 export type RoutePath = typeof ROUTES[keyof typeof ROUTES];
